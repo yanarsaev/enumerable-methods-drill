@@ -212,11 +212,12 @@ const users = [
   
   // функция принимает массив и id пользователя, и выводит в консоль всю информацию (весь объект) об этом пользователе
   function getUserById(array, id) {
-    let arrayFind = array.find(item => {
+    array.find(item => {
         if(item.id === id) {
             console.log(item)
         }
     })
+
   }
   
   getUserById(users, 2); // должен вывести в консоль объект юзера с id === 2
@@ -229,14 +230,14 @@ const users = [
     return arrayFilter
   }
   
-  console.log(removeAddresses(users));
+  // console.log(removeAddresses(users));
   
   
   // функция принимает массив и id пользователя, который должен быть удален и возвращает новый массив, уже без этого пользователя.
   function deleteUser(array, id) {
     let arrayFilter = array.filter(item => {
         if (item.id === id) {
-            array.splice(id-1, 1)
+            return array.splice(id-1, 1)
         }
     })
     return array
@@ -254,7 +255,7 @@ const users = [
     })
   }
 
-  getUsersGeo(users, 1)
+  getUsersGeo(users, 4)
   
   
   // функция принимает массив и id пользователя, и выводит в консоль всю информацию (весь объект) о компании этого пользователя
@@ -264,9 +265,10 @@ const users = [
         console.log(item.company)
       }
     })
+    
   }
 
-  getUsersCompany(users, 1)
+  getUsersCompany(users, 2)
   
   // функция принимает массив, id пользователя и новый номер телефона.
   // Функция возвращает новый массив с измененным номером для указанного пользователя. 
